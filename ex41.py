@@ -31,8 +31,8 @@ for word in urlopen(WORD_URL).readlines():
     WORDS.append(str(word.strip(),encoding="utf-8"))
 
 def convert(snippet, phrase):
-    class_names = [w.capitalixe() for w in
-            random.sample(WORDS,snippet.count("%%%"))]
+    class_names = [w.capitalize() for w in
+            random.sample(WORDS, snippet.count("%%%"))]
     other_names = random.sample(WORDS, snippet.count("***"))
     results = []
     param_names = []
@@ -41,7 +41,7 @@ def convert(snippet, phrase):
         param_count = random.randint(1,3)
         param_names.append(', ' .join(random.sample(WORDS, param_count)))
 
-    for sentence in snippet, phrases:
+    for sentence in snippet, phrase:
         result = sentence[:]
 
         #fake class names
@@ -67,12 +67,13 @@ try:
         random.shuffle(snippets)
 
         for snippet in snippets:
-            pharse = PHRASES[snippet]
-            question, answer = convert(snippet, phrase)
+            phrase = PHRASES[snippet]
+            question, answer = convert(snippet, pharse)
             if PHRASE_FIRST:
                 question, answer = answer, question
 
             print(question)
+                    
             input("> ")
             print(f"ANSWER: {answer}\n\n")
 except EOFError:
