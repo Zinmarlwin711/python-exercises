@@ -6,7 +6,7 @@ def cheese_and_crackers(cheese_count, boxes_of_crackers):
 
 
 print("We can just give the function numbers directly:")
-cheese_and_crackers(20,30)
+cheese_and_crackers(20, 30)
 
 
 print("OR, we can variables from out script:")
